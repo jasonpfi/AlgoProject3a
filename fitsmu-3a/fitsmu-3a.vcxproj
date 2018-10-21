@@ -156,6 +156,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dictionary.h" />
+    <ClInclude Include="d_matrix.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\dictionary.txt" />
+    <Text Include="data\input15.txt" />
+    <Text Include="data\input30.txt" />
+    <Text Include="data\input50.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

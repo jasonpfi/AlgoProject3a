@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dictionary.h" />
+    <ClInclude Include="d_except.h" />
     <ClInclude Include="d_matrix.h" />
   </ItemGroup>
   <ItemGroup>

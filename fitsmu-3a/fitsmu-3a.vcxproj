@@ -153,11 +153,13 @@
   <ItemGroup>
     <ClCompile Include="dictionary.cpp" />
     <ClCompile Include="fitsmu-3a.cpp" />
+    <ClCompile Include="grid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dictionary.h" />
     <ClInclude Include="d_except.h" />
     <ClInclude Include="d_matrix.h" />
+    <ClInclude Include="grid.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\dictionary.txt" />

@@ -1,4 +1,5 @@
 #include "dictionary.h"
+#include <iostream>
 
 dictionary::dictionary(std::ifstream& stream)
 {
@@ -29,6 +30,7 @@ void dictionary::selectionSort()
 		std::string tmp(words.at(i));
 		words.at(i) = words.at(least);
 		words.at(least) = tmp;
+		std::cout << "Sorted " << i << std::endl;
 	}
 }
 

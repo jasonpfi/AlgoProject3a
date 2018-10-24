@@ -47,7 +47,7 @@ int dictionary::binarySearch(const std::string& target) const
 		if (target == words.at(mid))
 		{
 			return mid;
-		} 
+		}
 		else if (target < words.at(mid))
 		{
 			back = mid;

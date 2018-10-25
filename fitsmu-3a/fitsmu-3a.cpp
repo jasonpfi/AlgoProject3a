@@ -19,11 +19,9 @@ int main()
 	wordFile.close();
 
 	// sort dictionary
-	wordList.selectionSort();
-
-	std::ofstream sortedFile("sortedDictionary.txt");
-	sortedFile << wordList;
-	sortedFile.close();
+	std::cout << "Sorting word list...";
+	//wordList.selectionSort();
+	std::cout << "Done" << std::endl;
 
 	std::cout << "Enter file name that can be found in the data folder: ";
 	std::string fileName;

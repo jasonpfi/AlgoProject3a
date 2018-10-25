@@ -64,6 +64,7 @@ void dictionary::selectionSort()
 
 		// Swap the words at index least and index i
 		this->swap(i, least);
+		std::cout << i << std::endl;
 
 	} // End for
 } // End selectionSort()
@@ -80,7 +81,7 @@ int dictionary::binarySearch(const std::string& target) const
 	int back(this->words.size() - 1);
 
 	// Within bounds of vector
-	while (front < back)
+	while (front <= back)
 	{
 		// Find midpoint and compare with target
 		int mid((front + back) / 2);

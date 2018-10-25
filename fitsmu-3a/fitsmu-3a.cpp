@@ -1,3 +1,11 @@
+/**
+ * Team: fitsmu
+ * Jason Fitch
+ * Sam Smucny
+ *
+ * fitsmu-3a.cpp: Main code file for word search program
+ */
+
 #include <iostream>
 #include <fstream>
 #include <string>

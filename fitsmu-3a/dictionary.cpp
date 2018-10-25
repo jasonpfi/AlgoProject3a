@@ -1,3 +1,12 @@
+/**
+ * Team: fitsmu
+ * Jason Fitch
+ * Sam Smucny
+ *
+ * dictionary.cpp: Contains the definitions for the methods declared in the
+ *           dictionary.h header file
+ */
+
 #include "dictionary.h"
 
 // Dictionary constructor

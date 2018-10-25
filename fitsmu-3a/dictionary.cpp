@@ -1,5 +1,4 @@
 #include "dictionary.h"
-#include <iostream>
 
 dictionary::dictionary(std::ifstream& stream)
 {
@@ -15,6 +14,19 @@ dictionary::dictionary(std::ifstream& stream)
 	//this->selectionSort();
 }
 
+// Overloaded output operator to print contents of dictionary
+//
+// ostream os: output stream object to write to screen
+// dictionary dict: dictionary object, print all words
+std::ostream& operator<<(std::ostream& os, const dictionary& dict)
+{
+   for (int i = 0; i < dict.words.size(); i++)
+   {
+      os << dict.words.at(i) << ",\n";
+   }
+
+   return os;
+}
 
 // Swap the key's at index i and index least
 //

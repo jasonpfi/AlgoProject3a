@@ -52,7 +52,7 @@ private:
    //  int i: the index of the column of the current item in the matrix
    //  int j: the index of the row of the current item in the matrix
    void findWords(std::vector<std::string>& vec, const int& direction,
-                  const int& i, const int& j) const;
+                  int& i, int& j) const;
 
    // Append to the vector of possible words for the letter at the given index
    //  of starti and startj by moving in one of 8 directions. The direction is
@@ -69,8 +69,8 @@ private:
    //  int startj: the index of the row of the current item in the matrix
 	void generateWords(void(grid::*f)(int &, int &) const,
 		std::vector<std::string>& vec,
-		const int& starti,
-		const int& startj) const;
+		int& i,
+		int& j) const;
 
    // The movement methods. Moves the indixes i and j in a certain direction
    //

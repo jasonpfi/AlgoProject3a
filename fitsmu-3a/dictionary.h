@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <iostream>
 
 // Class declaration
 class dictionary
@@ -19,6 +20,8 @@ class dictionary
 public:
 
    // Constructor
+   //
+   // ifstream stream: input stream to read words from dictionary file
 	dictionary(std::ifstream& stream);
 
    // Search for the given string in the dictionary. Return -1 if not found and
@@ -34,6 +37,10 @@ public:
    // int least: index of element with the smallest value in the rest of the
    //            vector
    void swap(int i, int least);
+
+   // Overloaded output operator to print contents of dictionary
+   friend std::ostream& operator<<(std::ostream& os,
+                                   const dictionary& dict);
 
 private:
 

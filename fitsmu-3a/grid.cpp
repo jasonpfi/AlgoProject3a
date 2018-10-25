@@ -64,7 +64,7 @@ std::vector<std::string> grid::readGrid() const
 //  int i: the index of the column of the current item in the matrix
 //  int j: the index of the row of the current item in the matrix
 void grid::findWords(std::vector<std::string>& vec, const int& direction,
-      const int& i, const int& j) const
+      int& i, int& j) const
 {
    // Switch on one of 8 possible directions
    switch (direction)
@@ -118,7 +118,7 @@ void grid::findWords(std::vector<std::string>& vec, const int& direction,
 //  int starti: the index of the column of the current item in the matrix
 //  int startj: the index of the row of the current item in the matrix
 void grid::generateWords(void(grid::*f) (int&, int&) const, std::vector<std::string>& vec,
-      const int& i, const int& j) const
+      int& i, int& j) const
 {
    // Empty Word to be appended to
 	std::string word = "";

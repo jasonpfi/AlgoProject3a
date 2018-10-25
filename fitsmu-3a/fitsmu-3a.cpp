@@ -15,9 +15,16 @@ int main()
 	dictionary wordList(wordFile);
 	wordFile.close();
 
-	// Load grid
-	std::cout << "Enter file name that can be found in the data folder: ";
+   search(wordList);
 
+	std::cin.get();
+	return 0;
+}
+
+void search(const dictionary& d)
+{
+
+	// std::cout << "Enter file name that can be found in the data folder: ";
 	std::string fileName;
 	// std::cin >> fileName;
 
@@ -27,11 +34,24 @@ int main()
 
 	f.close();
 
-    std::vector<std::string> results(g.readGrid());
-	std::cout << "Total words generated: " << results.size() << std::endl;
+   std::vector<std::string> candidateWords(g.readGrid());
 
-	std::cin.get();
-	return 0;
+   std::cout << "Words in the grid found in the dictionary: " << std::endl;
+
+   std::vector<std::string>::iterator it;
+   int printIndex = 0;
+
+   for (it = candidateWords.begin(); it != candidateWords.end(); it++)
+   {
+      if (d.binarySearch(*it) != -1)
+      {
+         std::cout << *it << ", ";
+         printIndex++;
+
+         if (printIndex % 5 == 0)
+            std::cout << std::endl;
+      }
+   }
+
+   //std::cout << "Total words generated: " << candidateWords.size() << std::endl;
 }
-
-void search(const dictionary& d);

@@ -56,5 +56,5 @@ int dictionary::binarySearch(const std::string& target) const
 		}
 	}
 
-	return false;
+	return -1;
 }

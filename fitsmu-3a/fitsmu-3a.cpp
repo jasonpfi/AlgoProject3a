@@ -53,5 +53,5 @@ void search(const dictionary& d)
       }
    }
 
-   //std::cout << "Total words generated: " << candidateWords.size() << std::endl;
+   std::cout << std::endl;
 }

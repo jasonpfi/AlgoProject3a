@@ -1,15 +1,5 @@
 #include "grid.h"
 
-
-void moveUp(const matrix<char>& mat, int& i, int& j);
-void moveDown(const matrix<char>& mat, int& i, int& j);
-void moveRight(const matrix<char>& mat, int& i, int& j);
-void moveLeft(const matrix<char>& mat, int& i, int& j);
-void moveUL(const matrix<char>& mat, int& i, int& j);
-void moveUR(const matrix<char>& mat, int& i, int& j);
-void moveDL(const matrix<char>& mat, int& i, int& j);
-void moveDR(const matrix<char>& mat, int& i, int& j);
-
 grid::grid(std::ifstream& stream)
 {
 	int rows;
@@ -47,40 +37,42 @@ std::vector<std::string> grid::readGrid() const
    return candidateWords;
 }
 
-void grid::findWords(std::vector<std::string>& vec, const int& direction, const int& i, const int& j) const
+void grid::findWords(std::vector<std::string>& vec, const int& direction,
+      const int& i, const int& j) const
 {
    std::string word = "";
 
    switch (direction)
    {
 		case 0:
-			this->generateWords(moveUp, vec, i, j);
+			this->generateWords(&grid::moveUp, vec, i, j);
 			break;
 		case 1:
-			this->generateWords(moveDown, vec, i, j);
+			this->generateWords(&grid::moveDown, vec, i, j);
 			break;
 		case 2:
-			this->generateWords(moveRight, vec, i, j);
+			this->generateWords(&grid::moveRight, vec, i, j);
 			break;
 		case 3:
-			this->generateWords(moveLeft, vec, i, j);
+			this->generateWords(&grid::moveLeft, vec, i, j);
 			break;
 		case 4:
-			this->generateWords(moveUR, vec, i, j);
+			this->generateWords(&grid::moveUR, vec, i, j);
 			break;
 		case 5:
-			this->generateWords(moveUL, vec, i, j);
+			this->generateWords(&grid::moveUL, vec, i, j);
 			break;
 		case 6:
-			this->generateWords(moveDR, vec, i, j);
+			this->generateWords(&grid::moveDR, vec, i, j);
 			break;
 		case 7:
-			this->generateWords(moveDL, vec, i, j);
+			this->generateWords(&grid::moveDL, vec, i, j);
 			break;
    }
 }
 
-void grid::generateWords(void(*f) (const matrix<char>&, int&, int&), std::vector<std::string>& vec, const int& starti, const int& startj) const
+void grid::generateWords(void(grid::*f) (int&, int&) const, std::vector<std::string>& vec,
+      const int& starti, const int& startj) const
 {
 	int i(starti);
 	int j(startj);
@@ -89,14 +81,14 @@ void grid::generateWords(void(*f) (const matrix<char>&, int&, int&), std::vector
 	for (int k = 0; k < this->mat.rows(); k++)
 	{
 		word += mat[i][j];
-		(*f)(this->mat, i, j);
+		(this->*f)(i, j);
 
 		if (k >= 4)
 			vec.push_back(word);
 	}
 }
 
-void moveUp(const matrix<char>& mat, int& i, int& j)
+void grid::moveUp(int& i, int& j) const
 {
    j--;
 
@@ -104,7 +96,7 @@ void moveUp(const matrix<char>& mat, int& i, int& j)
       j = mat.rows() - 1;
 }
 
-void moveDown(const matrix<char>& mat, int& i, int& j)
+void grid::moveDown(int& i, int& j) const
 {
 	j++;
 
@@ -112,40 +104,40 @@ void moveDown(const matrix<char>& mat, int& i, int& j)
 		j = 0;
 }
 
-void moveRight(const matrix<char>& mat, int& i, int& j)
+void grid::moveRight(int& i, int& j) const
 {
 	i++;
 	if (i == mat.cols())
 		i = 0;
 }
 
-void moveLeft(const matrix<char>& mat, int& i, int& j)
+void grid::moveLeft(int& i, int& j) const
 {
 	i--;
 	if (i == -1)
 		i = mat.cols() - 1;
 }
 
-void moveUL(const matrix<char>& mat, int& i, int& j)
+void grid::moveUL(int& i, int& j) const
 {
-	moveUp(mat, i, j);
-	moveLeft(mat, i, j);
+	moveUp(i, j);
+	moveLeft(i, j);
 }
 
-void moveUR(const matrix<char>& mat, int& i, int& j)
+void grid::moveUR(int& i, int& j) const
 {
-	moveUp(mat, i, j);
-	moveRight(mat, i, j);
+	moveUp(i, j);
+	moveRight(i, j);
 }
 
-void moveDL(const matrix<char>& mat, int& i, int& j)
+void grid::moveDL(int& i, int& j) const
 {
-	moveDown(mat, i, j);
-	moveLeft(mat, i, j);
+	moveDown(i, j);
+	moveLeft(i, j);
 }
 
-void moveDR(const matrix<char>& mat, int& i, int& j)
+void grid::moveDR(int& i, int& j) const
 {
-	moveDown(mat, i, j);
-	moveRight(mat, i, j);
+	moveDown(i, j);
+	moveRight(i, j);
 }

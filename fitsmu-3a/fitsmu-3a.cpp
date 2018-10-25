@@ -4,6 +4,8 @@
 #include "grid.h"
 #include "dictionary.h"
 
+void search(const dictionary& d);
+
 int main()
 {
     std::cout << "Word Search Program" << std::endl;
@@ -12,8 +14,6 @@ int main()
 	std::ifstream wordFile("data/dictionary_sorted.txt");
 	dictionary wordList(wordFile);
 	wordFile.close();
-
-   wordList.writeSorted();
 
 	// Load grid
 	std::cout << "Enter file name that can be found in the data folder: ";
@@ -33,3 +33,5 @@ int main()
 	std::cin.get();
 	return 0;
 }
+
+void search(const dictionary& d);

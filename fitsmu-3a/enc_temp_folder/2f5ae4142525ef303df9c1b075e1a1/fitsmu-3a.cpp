@@ -8,7 +8,7 @@ void findMatches(const grid& g, const dictionary& d);
 
 // main method
 // Search the dictionary with every possible word greater than 5 characters in
-// the grid
+//  the grid
 int main()
 {
 	std::cout << "Word Search Program" << std::endl;
@@ -31,21 +31,19 @@ int main()
 
 	std::ifstream f(("data/" + fileName).c_str());
 
-	// Instantiate grid object
+   // Instantiate grid object
 	grid g(f);
 
 	f.close();
 
 	findMatches(g, wordList);
 
-	std::cout << std::endl;
+   std::cout << std::endl;
 
-	std::cin.get();
-	return 0;
+   std::cin.get();
+   return 0;
 } // End main
 
-// Generates candidate words from grid (g) and prints out the ones
-// that are found in the dictionary (d)
 void findMatches(const grid& g, const dictionary& d)
 {
 	// Get all of the possible words from the grid

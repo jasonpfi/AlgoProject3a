@@ -13,7 +13,7 @@
 #include "d_matrix.h"
 #include <vector>
 
- // Class declaration
+// Class declaration
 class grid
 {
 

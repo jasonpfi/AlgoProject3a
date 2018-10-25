@@ -9,9 +9,9 @@ int main()
     std::cout << "Word Search Program" << std::endl;
 
 	// Load dictionary
-	//std::ifstream wordFile("data/dictionary.txt");
-	//dictionary wordList(wordFile);
-	//wordFile.close();
+	std::ifstream wordFile("data/dictionary.txt");
+	dictionary wordList(wordFile);
+	wordFile.close();
 
 	// Load grid
 	std::cout << "Enter file name that can be found in the data folder: ";
@@ -25,7 +25,7 @@ int main()
 
 	f.close();
 
-   g.readGrid();
+    g.readGrid();
 
 	std::cin.get();
 	return 0;

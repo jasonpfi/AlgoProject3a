@@ -49,6 +49,7 @@ void grid::findWords(std::vector<std::string>& vec, int direction, int i, int j)
    switch (direction)
    {
       case 0:
+		  generateWords(this->moveUp, vec, this->mat.rows(), i, j);
          for (int k = 0; k < this->mat.rows(); k++)
          {
             this->moveUp(i, j);
@@ -62,12 +63,51 @@ void grid::findWords(std::vector<std::string>& vec, int direction, int i, int j)
    }
 }
 
-void grid::moveUp(int& i, int& j)
+void grid::generateWords(void(*f) (int&, int&), std::vector<std::string>& vec,
+	const int& iterations, const int& starti, const int& startj)
+{
+	int i(starti);
+	int j(startj);
+	std::string word = "";
+
+	for (int k = 0; k < iterations; k++)
+	{
+		f(i, j);
+		word = word.append(&mat[i][j]);
+
+		if (k >= 4)
+			vec.push_back(word);
+	}
+}
+
+void grid::moveUp(int& i, int& j) const
 {
    j--;
 
    if (j == -1)
       j = this->mat.rows() - 1;
-   if (j == this->mat.rows())
-      j = 0;
+}
+
+void grid::moveDown(int& i, int& j) const
+{
+	j++;
+
+	if (j == this->mat.rows())
+		j = 0;
+}
+
+void grid::moveRight(int& i, int& j) const
+{
+	i++;
+
+	if (i == this->mat.cols())
+		i = 0;
+}
+
+void grid::moveLeft(int& i, int& j) const
+{
+	i--;
+
+	if (i == -1)
+		i = this->mat.cols() - 1;
 }

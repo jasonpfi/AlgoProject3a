@@ -24,11 +24,11 @@ int main()
 void search(const dictionary& d)
 {
 
-	// std::cout << "Enter file name that can be found in the data folder: ";
+	std::cout << "Enter file name that can be found in the data folder: ";
 	std::string fileName;
-	// std::cin >> fileName;
+	std::cin >> fileName;
 
-	std::ifstream f("data/input15.txt");
+	std::ifstream f(("data/" + fileName).c_str());
 
 	grid g(f);
 

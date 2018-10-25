@@ -12,7 +12,7 @@ dictionary::dictionary(std::ifstream& stream)
 		this->words.push_back(next);
 	}
 
-	this->selectionSort();
+	//this->selectionSort();
 }
 
 void dictionary::selectionSort()

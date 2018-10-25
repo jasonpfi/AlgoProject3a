@@ -9,9 +9,11 @@ int main()
     std::cout << "Word Search Program" << std::endl;
 
 	//// Load dictionary
-	//std::ifstream wordFile("data/dictionary.txt");
-	//dictionary wordList(wordFile);
-	//wordFile.close();
+	std::ifstream wordFile("data/dictionary_sorted.txt");
+	dictionary wordList(wordFile);
+	wordFile.close();
+
+   wordList.writeSorted();
 
 	// Load grid
 	std::cout << "Enter file name that can be found in the data folder: ";

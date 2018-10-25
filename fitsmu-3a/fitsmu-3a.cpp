@@ -22,13 +22,13 @@ int main()
 	std::cout << "Word Search Program" << std::endl;
 
 	//// Load dictionary
-	std::ifstream wordFile("data/dictionary_sorted.txt");
+	std::ifstream wordFile("data/dictionary.txt");
 	dictionary wordList(wordFile);
 	wordFile.close();
 
 	// sort dictionary
 	std::cout << "Sorting word list...";
-	//wordList.selectionSort();
+	wordList.selectionSort();
 	std::cout << "Done" << std::endl;
 
 	std::cout << "Enter file name that can be found in the data folder: ";

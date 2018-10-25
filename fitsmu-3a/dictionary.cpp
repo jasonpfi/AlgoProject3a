@@ -73,8 +73,6 @@ void dictionary::selectionSort()
 
 		// Swap the words at index least and index i
 		this->swap(i, least);
-		std::cout << i << std::endl;
-
 	} // End for
 } // End selectionSort()
 
